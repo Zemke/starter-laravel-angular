@@ -16,6 +16,11 @@ Route::get('/', 'WelcomeController@index');
 Route::get('home', 'HomeController@index');
 
 Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
+    'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
 ]);
+
+// Catch all undefined routes.
+Route::any('{undefinedRoute}', function ($undefinedRoute) {
+    return view('home');
+})->where('undefinedRoute', '([A-z\d-\/_.]+)?');
