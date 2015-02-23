@@ -11,16 +11,30 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
-
-Route::get('home', 'HomeController@index');
+Route::get('/', function () {
+    return view('layout');
+});
 
 Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
 ]);
 
+
+Route::get('/partials/index', function () {
+    return view('partials.index');
+});
+
+Route::get('/partials/{category}/{action?}', function ($category, $action = 'index') {
+    return view(join('.', ['partials', $category, $action]));
+});
+
+Route::get('/partials/{category}/{action}/{id}', function ($category, $action = 'index', $id) {
+    return view(join('.', ['partials', $category, $action, $id]));
+});
+
+
 // Catch all undefined routes.
 Route::any('{undefinedRoute}', function ($undefinedRoute) {
-    return view('home');
+    return view('layout');
 })->where('undefinedRoute', '([A-z\d-\/_.]+)?');
