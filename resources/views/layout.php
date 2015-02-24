@@ -11,6 +11,7 @@
     <script type="application/javascript" src="/js/controllers/MainController.js"></script>
     <script type="application/javascript" src="/js/app.js"></script>
     <link rel="stylesheet" href="/css/app.css"/>
+    <link rel="stylesheet" href="/css/all.css"/>
 </head>
 <body ng-app="todoApp" ng-controller="MainController">
 
@@ -34,7 +35,7 @@
     </div>
 </nav>
 
-<div class="container" style="padding-top: 80px;">
+<div class="container">
     <div ng-view>
     </div>
 </div>
