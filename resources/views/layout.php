@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+    <base href="/">
     <meta charset="UTF-8">
     <title>Todo</title>
     <script type="application/javascript"
@@ -24,12 +25,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#/">Todos</a>
+            <a class="navbar-brand" href="/">Todos</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#/">Home</a></li>
-                <li><a href="#/articles">Articles</a></li>
+                <li class="active"><a href="/">Home</a></li>
+                <li><a href="/articles">Articles</a></li>
             </ul>
         </div>
     </div>
