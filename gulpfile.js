@@ -13,8 +13,13 @@ var elixir = require('laravel-elixir');
 
 elixir(function (mix) {
   mix
-    .less('app.less')
+    .less(
+      'app.less'
+    )
     .styles([
       'style.css'
+    ])
+    .scripts([
+      '**/*.js'
     ]);
 });

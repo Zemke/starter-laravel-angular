@@ -1,6 +1,6 @@
-angular.module('todo').factory('Todo', ['$resource',
+angular.module('TodoService', []).factory('Todo', ['$resource',
   function ($resource) {
-    return $resource('/api/todos/:todoId', {
+    return $resource('/api/todo/:todoId', {
       todoId: '@_id'
     }, {
       update: {
