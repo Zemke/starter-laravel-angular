@@ -1,5 +1,6 @@
 angular.module('todoApp', [
   'ngRoute',
+  'ngResource',
   'appRoutes',
   'MainController',
   'TodoController',
@@ -29,6 +30,17 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider',
   }
 ]);
 
+angular.module('TodoService', []).factory('Todo', ['$resource',
+  function ($resource) {
+    return $resource('/api/todo/:todoId', {
+      todoId: '@_id'
+    }, {
+      update: {
+        method: 'PUT'
+      }
+    });
+  }
+]);
 angular.module('MainController', []).controller('MainController', ['$scope', '$location',
   function ($scope, $location) {
     $scope.isActive = function (route) {
@@ -39,19 +51,6 @@ angular.module('MainController', []).controller('MainController', ['$scope', '$l
 
 angular.module('TodoController', []).controller('TodoController', ['$scope', 'Todo',
   function ($scope, Todo) {
-    //console.log(Todo);
-    //console.log(new Todo());
-  }
-]);
-
-angular.module('TodoService', []).factory('Todo', ['$resource',
-  function ($resource) {
-    return $resource('/api/todo/:todoId', {
-      todoId: '@_id'
-    }, {
-      update: {
-        method: 'PUT'
-      }
-    });
+    $scope.greeting = "Hello, World!";
   }
 ]);
