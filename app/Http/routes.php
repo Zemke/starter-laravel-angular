@@ -15,12 +15,6 @@ Route::get('/', function () {
     return view('layout');
 });
 
-Route::controllers([
-    'auth' => 'Auth\AuthController',
-    'password' => 'Auth\PasswordController',
-]);
-
-
 Route::get('/partials/index', function () {
     return view('partials.index');
 });
@@ -33,8 +27,15 @@ Route::get('/partials/{category}/{action}/{id}', function ($category, $action = 
     return view(join('.', ['partials', $category, $action, $id]));
 });
 
+// Getting RESTful
+Route::resource('todo', 'TodoController');
 
 // Catch all undefined routes.
 Route::any('{undefinedRoute}', function ($undefinedRoute) {
     return view('layout');
 })->where('undefinedRoute', '([A-z\d-\/_.]+)?');
+
+Route::controllers([
+    'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
+]);
