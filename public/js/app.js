@@ -1,2 +1,8 @@
-angular.module('todoApp', ['ngRoute', 'appRoutes', 'MainController']);
+angular.module('todoApp', [
+  'ngRoute',
+  'appRoutes',
+  'MainController',
+  'TodoController',
+  'TodoService'
+]);
 
