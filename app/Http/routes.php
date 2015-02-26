@@ -24,11 +24,11 @@ Route::get('/partials/{category}/{action?}', function ($category, $action = 'ind
 });
 
 Route::get('/partials/{category}/{action}/{id}', function ($category, $action = 'index', $id) {
-    return view(join('.', ['partials', $category, $action, $id]));
+    return view(join('.', ['partials', $category, $action]));
 });
 
 // Getting RESTful
-Route::resource('todo', 'TodoController');
+Route::resource('api/todo', 'TodoController');
 
 // Catch all undefined routes.
 Route::any('{undefinedRoute}', function ($undefinedRoute) {

@@ -7,9 +7,13 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider',
       })
       .when('/:category/:action?/:id?', {
         templateUrl: function (params) {
+          var allowedParams = ['category', 'action', 'id'];
           var paramVals = [];
-          for (var key in params)
-            paramVals.push(params[key]);
+          for (var key in params) {
+            if (allowedParams.indexOf(key) !== -1) {
+              paramVals.push(params[key]);
+            }
+          }
           return '/partials/' + paramVals.join('/');
         }
       })
