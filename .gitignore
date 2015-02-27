@@ -2,6 +2,7 @@
 .env
 /public/css
 /public/js
+/public/build
 
 # Created by https://www.gitignore.io
 
