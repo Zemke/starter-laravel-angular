@@ -4,12 +4,6 @@
     <base href="/">
     <meta charset="UTF-8">
     <title>Todo</title>
-    <script type="application/javascript"
-            src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.js"></script>
-    <script type="application/javascript"
-            src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular-route.js"></script>
-    <script type="application/javascript"
-            src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular-resource.js"></script>
     <script type="application/javascript" src="{{ elixir('js/all.js') }}"></script>
     <link rel="stylesheet" href="/css/app.css"/>
     <link rel="stylesheet" href="{{ elixir('css/all.css') }}"/>
