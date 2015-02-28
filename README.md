@@ -17,6 +17,9 @@ This is a repo for a starter application for a Single Page Application featuring
 
 ## Installation
 ```
+composer install --prefer-dist
+```
+```
 git clone https://github.com/Zemke/starter-laravel-angular.git
 ```
 ```
@@ -33,6 +36,7 @@ Edit `.env.example` according to your environment and save as `.env`.
 ## Requirements
 
 - PHP >= 5.4
+- Composer
 - Gulp
 - NPM
 - MySQL
