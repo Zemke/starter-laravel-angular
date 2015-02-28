@@ -1,23 +1,40 @@
-## Laravel PHP Framework
+# Laravel and AngularJS Starter Application
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/downloads.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+This is a repo for a starter application for a Single Page Application featuring the modern Laravel PHP framework and Google’s acclaimed front-end framework AngularJS. Just download and install and you have a good foundation for building any application.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+## Features!
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+- Single Page Application
+  - HTML5 mode URLs
+  - Optimized Laravel and AngularJS routes
+    - You kind of don’t need to care about routes, they work automatically as you add new views. Still allows for flexibility if you plan any special routes.
+- Larevel Elixir readily configured
+  - Versioning of CSS and JS files (cache busting)
+  - CSS and JS files will be included automatically
+- A whole ready CRUD architecture
+- Comes with Bootstrap and AngularJS configured to work together at their best
+- And more... have a try!
 
-## Official Documentation
+## Installation
+```
+git clone https://github.com/Zemke/starter-laravel-angular.git
+```
+```
+npm install
+```
+```
+gulp && gulp watch
+```
+```
+php -S localhost:8080 -t public/
+```
+Edit `.env.example` according to your environment and save as `.env`.
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+## Requirements
 
-## Contributing
+- PHP >= 5.4
+- Gulp
+- NPM
+- MySQL
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
-
-### License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+Have fun! Any feedback is welcome. Use Issues.
