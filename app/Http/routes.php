@@ -28,14 +28,14 @@ Route::get('/partials/{category}/{action}/{id}', function ($category, $action = 
 });
 
 // Getting RESTful
-Route::resource('api/todo', 'TodoController');
+Route::resource('/api/todo', 'TodoController');
 
-// Catch all undefined routes.
+Route::controllers([
+    'partials/auth' => 'Auth\AuthController',
+    'partials/password' => 'Auth\PasswordController',
+]);
+
+// Catch all undefined routes. Always gotta stay at the bottom since order of routes matters.
 Route::any('{undefinedRoute}', function ($undefinedRoute) {
     return view('layout');
 })->where('undefinedRoute', '([A-z\d-\/_.]+)?');
-
-Route::controllers([
-    'auth' => 'Auth\AuthController',
-    'password' => 'Auth\PasswordController',
-]);
