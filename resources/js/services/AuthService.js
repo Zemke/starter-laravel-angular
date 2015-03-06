@@ -2,9 +2,10 @@ angular.module('AuthService', []).factory('Auth', ['$http', 'Session',
   function ($http, Session) {
     var authService = {};
 
-    authService.login = function (credentials) {
+    authService.login = function (data) {
+      // @TODO Caution! Rhetorical question ahead! Could this be done with ngResource?
       return $http
-        .post('/api/auth/login', credentials)
+        .post('/api/user/login', {username: data.username, password: data.password})
         .then(function (res) {
           Session.create(res.data.id, res.data.user.id,
             res.data.user.role);
