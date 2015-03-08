@@ -5,7 +5,8 @@ angular.module('todoApp', [
   'enterStroke',
   'MainController',
   'TodoController',
-  'AuthController',
+  'UserController',
+  'UserService',
   'AuthService',
   'TodoService',
   'SessionService'

@@ -29,8 +29,6 @@ Route::get('/partials/{category}/{action}/{id}', function ($category, $action = 
 
 // Additional RESTful routes.
 Route::post('/api/user/login', 'UserController@login');
-//Route::get('/api/auth/register', 'PhotoController@method'); Not yet.
-
 
 // Getting RESTful
 Route::resource('/api/todo', 'TodoController');

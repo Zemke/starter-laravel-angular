@@ -1,15 +1,21 @@
 <?php namespace tel\Http\Controllers;
 
+use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use tel\Http\Requests;
+use tel\User;
 
 class UserController extends Controller
 {
-    private $request;
+    private $req;
+    private $user;
 
-    function __construct(Request $request)
+    function __construct(Request $request, User $user, ResponseFactory $responseFactory)
     {
-        $this->request = $request;
+        $this->req = $request;
+        $this->user = $user;
+        $this->res = $responseFactory;
     }
 
     /**
@@ -19,7 +25,17 @@ class UserController extends Controller
      */
     public function login()
     {
-        return $this->request->all();
+        $user = $this->user->authenticate(
+            $this->req->input('username'), $this->req->input('password'));
+        if (!$user) {
+            return $this->res->json([
+                'code' => null,
+                'message' => 'Login failed',
+                'description' => 'Wrong username/password.'
+
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+        return $this->res->json($user, Response::HTTP_OK);
     }
 
     /**
@@ -49,7 +65,11 @@ class UserController extends Controller
      */
     public function store()
     {
-        //
+        $user = new User($this->req->all());
+        if (!$user->save()) {
+            abort(500, 'Could not save user.');
+        }
+        return $user;
     }
 
     /**
