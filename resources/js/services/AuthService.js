@@ -7,9 +7,8 @@ angular.module('AuthService', []).factory('Auth', ['$http', 'Session',
       return $http
         .post('/api/user/login', {username: data.username, password: data.password})
         .then(function (res) {
-          Session.create(res.data.id, res.data.user.id,
-            res.data.user.role);
-          return res.data.user;
+          Session.create(res.data.id, res.data.id, 'admin');
+          return res.data;
         });
     };
 
