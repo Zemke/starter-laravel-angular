@@ -17,10 +17,10 @@ This is a repo for a starter application for a Single Page Application featuring
 
 ## Installation
 ```
-composer install --prefer-dist
-```
-```
 git clone https://github.com/Zemke/starter-laravel-angular.git
+```
+```
+composer install --prefer-dist
 ```
 ```
 npm install
