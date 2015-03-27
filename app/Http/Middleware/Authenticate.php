@@ -1,4 +1,4 @@
-<?php namespace tel\Http\Middleware;
+<?php namespace Todo\Http\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;

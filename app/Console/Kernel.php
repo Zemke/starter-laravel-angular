@@ -1,4 +1,4 @@
-<?php namespace tel\Console;
+<?php namespace Todo\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -11,7 +11,7 @@ class Kernel extends ConsoleKernel {
 	 * @var array
 	 */
 	protected $commands = [
-		'tel\Console\Commands\Inspire',
+		'Todo\Console\Commands\Inspire',
 	];
 
 	/**

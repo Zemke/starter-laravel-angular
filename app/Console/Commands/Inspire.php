@@ -1,4 +1,4 @@
-<?php namespace tel\Console\Commands;
+<?php namespace Todo\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Inspiring;

@@ -1,4 +1,4 @@
-<?php namespace tel\Http\Controllers;
+<?php namespace Todo\Http\Controllers;
 
 use Illuminate\Foundation\Bus\DispatchesCommands;
 use Illuminate\Routing\Controller as BaseController;

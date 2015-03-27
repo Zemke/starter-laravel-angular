@@ -16,7 +16,7 @@
 			"database"
 		],
 		"psr-4": {
-			"tel\\": "app/"
+			"Todo\\": "app/"
 		}
 	},
 	"autoload-dev": {

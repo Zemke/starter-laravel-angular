@@ -1,6 +1,6 @@
-<?php namespace tel\Services;
+<?php namespace Todo\Services;
 
-use tel\User;
+use Todo\User;
 use Validator;
 use Illuminate\Contracts\Auth\Registrar as RegistrarContract;
 

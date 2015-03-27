@@ -1,10 +1,10 @@
-<?php namespace tel\Http\Controllers;
+<?php namespace Todo\Http\Controllers;
 
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use tel\Http\Requests;
-use tel\User;
+use Todo\Http\Requests;
+use Todo\User;
 
 class UserController extends Controller
 {

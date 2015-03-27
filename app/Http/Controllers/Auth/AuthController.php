@@ -1,6 +1,6 @@
-<?php namespace tel\Http\Controllers\Auth;
+<?php namespace Todo\Http\Controllers\Auth;
 
-use tel\Http\Controllers\Controller;
+use Todo\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;

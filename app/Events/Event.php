@@ -1,4 +1,4 @@
-<?php namespace tel\Events;
+<?php namespace Todo\Events;
 
 abstract class Event {
 

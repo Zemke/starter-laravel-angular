@@ -1,4 +1,4 @@
-<?php namespace tel\Commands;
+<?php namespace Todo\Commands;
 
 abstract class Command {
 

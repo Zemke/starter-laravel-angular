@@ -1,4 +1,4 @@
-<?php namespace tel\Providers;
+<?php namespace Todo\Providers;
 
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -12,7 +12,7 @@ class RouteServiceProvider extends ServiceProvider {
 	 *
 	 * @var string
 	 */
-	protected $namespace = 'tel\Http\Controllers';
+	protected $namespace = 'Todo\Http\Controllers';
 
 	/**
 	 * Define your route model bindings, pattern filters, etc.
