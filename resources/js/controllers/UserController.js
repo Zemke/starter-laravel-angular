@@ -2,7 +2,6 @@ angular.module('UserController', []).controller('UserController', ['$scope', '$r
   function ($scope, $rootScope, User, Auth) {
     $scope.login = function () {
       Auth.login(this).then(function (user) {
-        $scope.setCurrentUser(user);
       }, function () {
       });
     };

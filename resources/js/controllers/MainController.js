@@ -9,12 +9,5 @@ angular.module('MainController', []).controller('MainController', ['$scope', '$l
     $scope.isActive = function (route) {
       return route === $location.path();
     };
-
-    $scope.currentUser = null;
-    $scope.userRoles = USER_ROLES;
-    $scope.isAuthorized = Auth.isAuthorized;
-    $scope.setCurrentUser = function (user) {
-      $scope.currentUser = user;
-    };
   }
 ]);
