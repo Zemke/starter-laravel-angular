@@ -1,8 +1,10 @@
-angular.module('UserController', []).controller('UserController', ['$scope', '$rootScope', 'User', 'Auth',
-  function ($scope, $rootScope, User, Auth) {
+angular.module('UserController', []).controller('UserController', ['$scope', '$rootScope', 'User', 'Auth', '$window',
+  function ($scope, $rootScope, User, Auth, $window) {
     $scope.login = function () {
       Auth.login(this).then(function (user) {
+        $window.sessionStorage.token = user.token;
       }, function () {
+        delete $window.sessionStorage.token;
       });
     };
 
