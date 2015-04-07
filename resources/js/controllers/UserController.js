@@ -1,11 +1,9 @@
-angular.module('UserController', []).controller('UserController', ['$scope', '$rootScope', 'AUTH_EVENTS', 'User', 'Auth',
-  function ($scope, $rootScope, AUTH_EVENTS, User, Auth) {
+angular.module('UserController', []).controller('UserController', ['$scope', '$rootScope', 'User', 'Auth',
+  function ($scope, $rootScope, User, Auth) {
     $scope.login = function () {
       Auth.login(this).then(function (user) {
-        $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
         $scope.setCurrentUser(user);
       }, function () {
-        $rootScope.$broadcast(AUTH_EVENTS.loginFailed);
       });
     };
 
