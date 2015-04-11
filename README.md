@@ -8,6 +8,10 @@ This is a repo for a starter application for a Single Page Application featuring
   - HTML5 mode URLs
   - Optimized Laravel and AngularJS routes
     - You kind of don’t need to care about routes, they work automatically as you add new views. Still allows for flexibility if you plan any special routes.
+- Authentication!
+  - Flexible, extensible, clean
+  - Token-based (![tymondesigns/jwt-auth](https://github.com/tymondesigns/jwt-auth))
+  - Persistent local storage
 - Larevel Elixir readily configured
   - Versioning of CSS and JS files (cache busting)
   - CSS and JS files will be included automatically
