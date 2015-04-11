@@ -36,13 +36,5 @@ angular.module('UserController', []).controller('UserController', ['$scope', '$r
       var userId = splitPath[splitPath.length - 1];
       $scope.user = User.get({userId: userId});
     };
-
-    $scope.getByToken = function () {
-      return new User().$getByToken(function (res) {
-        console.log(res);
-      }, function (err) {
-        console.log(err);
-      });
-    };
   }
 ]);
