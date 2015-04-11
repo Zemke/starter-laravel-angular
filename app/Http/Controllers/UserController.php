@@ -43,6 +43,16 @@ class UserController extends Controller
     }
 
     /**
+     * Get a user by the token from the header.
+     *
+     * @return Response
+     */
+    public function getByToken()
+    {
+        return $this->jwtAuth->parseToken()->authenticate();
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return Response

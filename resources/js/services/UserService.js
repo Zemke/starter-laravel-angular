@@ -9,6 +9,10 @@ angular.module('UserService', []).factory('User', ['$resource',
       login: {
         method: 'POST',
         url: '/api/user/login'
+      },
+      getByToken: {
+        method: 'GET',
+        url: '/api/user/getByToken'
       }
     });
   }
