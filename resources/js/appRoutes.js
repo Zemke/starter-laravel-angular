@@ -28,7 +28,7 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', '
           request: function (config) {
             config.headers = config.headers || {};
             if ($localStorage.token) {
-              config.headers.Authorization = $localStorage.token;
+              config.headers.Authorization = 'Bearer ' + $localStorage.token;
             }
             return config;
           },
