@@ -44,3 +44,6 @@ Route::resource('/api/user', 'UserController');
 Route::any('{undefinedRoute}', function ($undefinedRoute) {
     return view('layout');
 })->where('undefinedRoute', '([A-z\d-\/_.]+)?');
+
+Blade::setContentTags('<%', '%>');        // for variables and all things Blade
+Blade::setEscapedContentTags('<%%', '%%>');   // for escaped data

@@ -4,9 +4,9 @@
     <base href="/">
     <meta charset="UTF-8">
     <title>Todo</title>
-    <script type="application/javascript" src="{{ elixir('js/all.js') }}"></script>
+    <script type="application/javascript" src="<% elixir('js/all.js') %>"></script>
     <link rel="stylesheet" href="/css/app.css"/>
-    <link rel="stylesheet" href="{{ elixir('css/all.css') }}"/>
+    <link rel="stylesheet" href="<% elixir('css/all.css') %>"/>
 </head>
 <body ng-app="todoApp" ng-controller="MainController">
 
