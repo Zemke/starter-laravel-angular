@@ -5,8 +5,8 @@ angular.module('UserController', []).controller('UserController', ['$scope', '$r
         username: this.username,
         password: this.password
       });
-      user.$login(function (res) {
-        console.log(res);
+      user.$login(function (user) {
+        $localStorage.token = user.token;
       }, function (err) {
         console.log(err);
       });
