@@ -1,4 +1,8 @@
 <div ng-controller="TodoController" ng-init="find()">
+    <p ng-if="!todos.length">
+        There are no todos right now, <a href="/todos/create">create one!</a>
+    </p>
+
     <div class="row" ng-repeat="todo in todos">
         <div class="col-lg-6">
             <div class="input-group">
