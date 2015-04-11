@@ -5,17 +5,20 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Todo\Http\Requests;
 use Todo\User;
+use Tymon\JWTAuth\JWTAuth;
 
 class UserController extends Controller
 {
     private $req;
     private $user;
+    private $jwtAuth;
 
-    function __construct(Request $request, User $user, ResponseFactory $responseFactory)
+    function __construct(Request $request, User $user, ResponseFactory $responseFactory, JWTAuth $jwtAuth)
     {
         $this->req = $request;
         $this->user = $user;
         $this->res = $responseFactory;
+        $this->jwtAuth = $jwtAuth;
     }
 
     /**
@@ -35,6 +38,7 @@ class UserController extends Controller
 
             ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
+        $user['token'] = $this->jwtAuth->fromUser($user);
         return $this->res->json($user, Response::HTTP_OK);
     }
 
