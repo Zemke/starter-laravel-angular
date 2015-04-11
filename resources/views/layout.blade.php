@@ -25,6 +25,8 @@
             <ul class="nav navbar-nav">
                 <li ng-class="{active:isActive('/todos')}"><a href="/todos">List Todos</a></li>
                 <li ng-class="{active:isActive('/todos/create')}"><a href="/todos/create">Create Todo</a></li>
+                <li ng-class="{active:isActive('/auth/signup')}"><a href="/auth/signup">Sign Up</a></li>
+                <li ng-class="{active:isActive('/auth/login')}"><a href="/auth/login">Log in</a></li>
             </ul>
         </div>
     </div>
