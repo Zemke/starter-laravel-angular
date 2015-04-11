@@ -1,5 +1,5 @@
-angular.module('UserController', []).controller('UserController', ['$scope', '$rootScope', 'User', 'Auth', '$localStorage', '$location',
-  function ($scope, $rootScope, User, Auth, $localStorage, $location) {
+angular.module('UserController', []).controller('UserController', ['$scope', 'User', '$localStorage', '$location',
+  function ($scope, User, $localStorage, $location) {
     $scope.login = function () {
       var user = new User({
         username: this.username,
