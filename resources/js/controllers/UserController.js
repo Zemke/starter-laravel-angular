@@ -1,5 +1,7 @@
 angular.module('UserController', []).controller('UserController', ['$scope', '$rootScope', 'User', 'Auth', '$localStorage',
   function ($scope, $rootScope, User, Auth, $localStorage) {
+angular.module('UserController', []).controller('UserController', ['$scope', '$rootScope', 'User', 'Auth', '$localStorage', '$location',
+  function ($scope, $rootScope, User, Auth, $localStorage, $location) {
     $scope.login = function () {
       var user = new User({
         username: this.username,
@@ -23,6 +25,12 @@ angular.module('UserController', []).controller('UserController', ['$scope', '$r
       });
       user.$save(function (res) {
         $location.path('users/view/' + res.id);
+
+    $scope.findOne = function () {
+      var splitPath = $location.path().split('/');
+      var userId = splitPath[splitPath.length - 1];
+      $scope.user = User.get({userId: userId});
+    };
       }, function (err) {
         console.log(err);
       });
