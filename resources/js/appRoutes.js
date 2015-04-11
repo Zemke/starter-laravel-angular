@@ -22,13 +22,13 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', '
       });
     $locationProvider.html5Mode(true);
 
-    $httpProvider.interceptors.push(['$rootScope', '$q', '$window',
-      function ($rootScope, $q, $window) {
+    $httpProvider.interceptors.push(['$rootScope', '$q', '$localStorage',
+      function ($rootScope, $q, $localStorage) {
         return {
           request: function (config) {
             config.headers = config.headers || {};
-            if ($window.sessionStorage.token) {
-              config.headers.Authorization = 'Bearer ' + $window.sessionStorage.token;
+            if ($localStorage.token) {
+              config.headers.Authorization = $localStorage.token;
             }
             return config;
           },

@@ -1,5 +1,5 @@
-angular.module('AuthService', []).factory('Auth', ['$http', 'Session',
-  function ($http, Session) {
+angular.module('AuthService', []).factory('Auth', ['$http', '$localStorage',
+  function ($http, $localStorage) {
     var user = {};
 
     user.login = function (data) {
@@ -9,18 +9,6 @@ angular.module('AuthService', []).factory('Auth', ['$http', 'Session',
         .then(function (res) {
           return res.data;
         });
-    };
-
-    user.isAuthenticated = function () {
-      return !!Session.userId;
-    };
-
-    user.isAuthorized = function (authorizedRoles) {
-      if (!angular.isArray(authorizedRoles)) {
-        authorizedRoles = [authorizedRoles];
-      }
-      return (user.isAuthenticated() &&
-      authorizedRoles.indexOf(Session.userRole) !== -1);
     };
 
     return user;
