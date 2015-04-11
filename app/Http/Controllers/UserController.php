@@ -83,6 +83,7 @@ class UserController extends Controller
         if (!$user->save()) {
             abort(500, 'Could not save user.');
         }
+        $user['token'] = $this->jwtAuth->fromUser($user);
         return $user;
     }
 

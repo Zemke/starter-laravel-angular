@@ -1,5 +1,3 @@
-angular.module('UserController', []).controller('UserController', ['$scope', '$rootScope', 'User', 'Auth', '$localStorage',
-  function ($scope, $rootScope, User, Auth, $localStorage) {
 angular.module('UserController', []).controller('UserController', ['$scope', '$rootScope', 'User', 'Auth', '$localStorage', '$location',
   function ($scope, $rootScope, User, Auth, $localStorage, $location) {
     $scope.login = function () {
@@ -9,6 +7,7 @@ angular.module('UserController', []).controller('UserController', ['$scope', '$r
       });
       user.$login(function (user) {
         $localStorage.token = user.token;
+        $scope.getAuthenticatedUser(user);
       }, function (err) {
         console.log(err);
       });
@@ -23,14 +22,24 @@ angular.module('UserController', []).controller('UserController', ['$scope', '$r
         password: this.password,
         email: this.email
       });
-      user.$save(function (res) {
-        $location.path('users/view/' + res.id);
+      user.$save(function (user) {
+        $localStorage.token = user.token;
+        $scope.getAuthenticatedUser(user);
+        $location.path('users/view/' + user.id);
+      }, function (err) {
+        console.log(err);
+      });
+    };
 
     $scope.findOne = function () {
       var splitPath = $location.path().split('/');
       var userId = splitPath[splitPath.length - 1];
       $scope.user = User.get({userId: userId});
     };
+
+    $scope.getByToken = function () {
+      return new User().$getByToken(function (res) {
+        console.log(res);
       }, function (err) {
         console.log(err);
       });
