@@ -1,10 +1,14 @@
 angular.module('UserController', []).controller('UserController', ['$scope', '$rootScope', 'User', 'Auth', '$localStorage',
   function ($scope, $rootScope, User, Auth, $localStorage) {
     $scope.login = function () {
-      Auth.login(this).then(function (user) {
-        $localStorage.token = user.token;
-      }, function () {
-        delete $localStorage.token;
+      var user = new User({
+        username: this.username,
+        password: this.password
+      });
+      user.$login(function (res) {
+        console.log(res);
+      }, function (err) {
+        console.log(err);
       });
     };
 

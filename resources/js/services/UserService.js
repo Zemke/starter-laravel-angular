@@ -5,6 +5,10 @@ angular.module('UserService', []).factory('User', ['$resource',
     }, {
       update: {
         method: 'PUT'
+      },
+      login: {
+        method: 'POST',
+        url: '/api/user/login'
       }
     });
   }
