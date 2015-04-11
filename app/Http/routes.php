@@ -35,15 +35,12 @@ Route::get('/api/user/getByToken', 'UserController@getByToken');
 Route::resource('/api/todo', 'TodoController');
 Route::resource('/api/user', 'UserController');
 
-//Route::controllers([
-//    'api/auth' => 'Auth\AuthController',
-//    'api/password' => 'Auth\PasswordController',
-//]);
-
 // Catch all undefined routes. Always gotta stay at the bottom since order of routes matters.
 Route::any('{undefinedRoute}', function ($undefinedRoute) {
     return view('layout');
 })->where('undefinedRoute', '([A-z\d-\/_.]+)?');
 
-Blade::setContentTags('<%', '%>');        // for variables and all things Blade
-Blade::setEscapedContentTags('<%%', '%%>');   // for escaped data
+// Using different syntax for Blade to avoid conflicts with Jade.
+// You are well-advised to go without any Blade at all.
+Blade::setContentTags('<%', '%>'); // For variables and all things Blade.
+Blade::setEscapedContentTags('<%%', '%%>'); // For escaped data.

@@ -10,6 +10,12 @@ angular.module('MainController', []).controller('MainController', ['$scope', '$l
       return route === $location.path();
     };
 
+    /**
+     * Query the authenticated user by the Authorization token from the header.
+     *
+     * @param user {object} If provided, it won't query from database, but take this one.
+     * @returns {null}
+     */
     $scope.getAuthenticatedUser = function (user) {
       if (user) {
         $scope.authenticatedUser = user;
@@ -21,11 +27,9 @@ angular.module('MainController', []).controller('MainController', ['$scope', '$l
       }
 
       new User().$getByToken(function (user) {
-        console.log(user);
         $scope.authenticatedUser = user;
       }, function (err) {
-        //console.log(err);
-        //$scope.authenticatedUser = err;
+        console.log(err);
       });
     };
 

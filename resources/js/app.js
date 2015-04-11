@@ -8,8 +8,6 @@ angular.module('todoApp', [
   'TodoController',
   'UserController',
   'UserService',
-  'AuthService',
   'TodoService',
-  'SessionService'
 ]);
 

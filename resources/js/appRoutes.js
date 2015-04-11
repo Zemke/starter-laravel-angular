@@ -20,6 +20,7 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', '
       .otherwise({
         redirectTo: '/'
       });
+    
     $locationProvider.html5Mode(true);
 
     $httpProvider.interceptors.push(['$rootScope', '$q', '$localStorage',
@@ -32,11 +33,11 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', '
             }
             return config;
           },
-          response: function (response) {
-            if (response.status === 401) {
-              // handle the case where the user is not authenticated
+          response: function (res) {
+            if (res.status === 401) {
+              // Handle unauthenticated user.
             }
-            return response || $q.when(response);
+            return res || $q.when(res);
           }
         };
       }

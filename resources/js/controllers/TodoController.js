@@ -11,9 +11,11 @@ angular.module('TodoController', []).controller('TodoController', ['$scope', '$l
         console.log(err);
       });
     };
+
     $scope.find = function () {
       $scope.todos = Todo.query();
     };
+
     $scope.remove = function (todo) {
       todo.$remove(function (res) {
         if (res) {
@@ -27,12 +29,14 @@ angular.module('TodoController', []).controller('TodoController', ['$scope', '$l
         console.log(err);
       })
     };
+
     $scope.update = function (todo) {
       todo.$update(function (res) {
       }, function (err) {
         console.log(err);
       });
     };
+
     $scope.findOne = function () {
       var splitPath = $location.path().split('/');
       var todoId = splitPath[splitPath.length - 1];
