@@ -45,7 +45,7 @@ Edit `.env.example` according to your environment and save as `.env`.
 - NPM
 - MySQL
 
-Have fun! Any feedback is welcome. Use Issues.
+Have fun! Any feedback is welcome. Use [Issues](https://github.com/Zemke/starter-laravel-angular/issues) or [Twitter](https://twitter.com/FlorianZemke). My Twitter handle is @FlorianZemke. I’m looking forward to talk to you.
 
 ![Laravel](https://cloud.githubusercontent.com/assets/3391981/6683259/2e914726-cc84-11e4-856c-bb26bda733a0.png)
 ![AngularJS](https://cloud.githubusercontent.com/assets/3391981/6683229/9e0ea694-cc83-11e4-9b2e-59524dafd069.jpg)
