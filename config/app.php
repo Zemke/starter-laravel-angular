@@ -144,11 +144,10 @@ return [
 		'Todo\Providers\ConfigServiceProvider',
 		'Todo\Providers\EventServiceProvider',
 		'Todo\Providers\RouteServiceProvider',
-
-        /*
-         * JSON Web Token (Authentication)
-         */
-        'Tymon\JWTAuth\Providers\JWTAuthServiceProvider',
+	        /*
+	         * JSON Web Token (Authentication)
+	        */
+	        'Tymon\JWTAuth\Providers\JWTAuthServiceProvider',
 
 	],
 
@@ -197,8 +196,7 @@ return [
 		'URL'       => 'Illuminate\Support\Facades\URL',
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
-
-        'JWTAuth'   => 'Tymon\JWTAuth\Facades\JWTAuth',
+    	        'JWTAuth'   => 'Tymon\JWTAuth\Facades\JWTAuth',
 
 	],
 
