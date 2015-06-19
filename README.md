@@ -29,13 +29,34 @@ composer install --prefer-dist
 ```
 npm install
 ```
+
+### Database Setup
+
+Edit `.env.example` according to your environment and save as `.env`.
+An application key can be generates with the command `php artisan key:generate`.
+
+Run these commands to create the tables within the database you have already created.
+
+```
+php artisan migrate:install
+```
+```
+php artisan migrate:refresh
+```
+
+## Run
+
+To provide the JS and CSS files and to keep track of changes to these files:
 ```
 gulp && gulp watch
 ```
+
+To start the PHP built-in server:
 ```
 php -S localhost:8080 -t public/
 ```
-Edit `.env.example` according to your environment and save as `.env`.
+
+Now you can browse the site  [http://localhost:8080](http://localhost:8080). 🙌
 
 ## Requirements
 
