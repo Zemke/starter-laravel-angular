@@ -1,3 +1,5 @@
+💁 *Zemke/starter-laravel-angular has been upgraded to Laravel 5.1.0. You can pull the changes and run* `rm composer.lock && composer install --prefer-dist --no-scripts` *to merge the upgrade.*
+
 # Laravel and AngularJS Starter Application
 
 This is a repo for a starter application for a Single Page Application featuring the modern Laravel PHP framework and Google’s acclaimed front-end framework AngularJS. Just download and install and you have a good foundation for building any application.
