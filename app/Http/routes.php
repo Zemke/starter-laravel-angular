@@ -40,7 +40,7 @@ Route::any('{undefinedRoute}', function ($undefinedRoute) {
     return view('layout');
 })->where('undefinedRoute', '([A-z\d-\/_.]+)?');
 
-// Using different syntax for Blade to avoid conflicts with Jade.
+// Using different syntax for Blade to avoid conflicts with AngularJS.
 // You are well-advised to go without any Blade at all.
 Blade::setContentTags('<%', '%>'); // For variables and all things Blade.
 Blade::setEscapedContentTags('<%%', '%%>'); // For escaped data.
