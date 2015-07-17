@@ -1,5 +1,5 @@
 var elixir = require('laravel-elixir');
-
+require('laravel-elixir-livereload');
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -20,7 +20,12 @@ elixir(function (mix) {
       'style.css'
     ])
     .scripts([
-      'libs/**/*.js',
+      '../../../bower_components/jquery/dist/jquery.js',
+      '../../../bower_components/angular/angular.js',
+      '../../../bower_components/ngstorage/ngStorage.js',
+      '../../../bower_components/angular-route/angular-route.js',
+      '../../../bower_components/angular-resource/angular-resource.js',
+      '../../../bower_components/bootstrap/dist/js/bootstrap.js',
       'app.js',
       'appRoutes.js',
       'controllers/**/*.js',
@@ -32,9 +37,10 @@ elixir(function (mix) {
       'js/all.js'
     ])
     .copy(
-    'public/js/all.js.map', 'public/build/js/all.js.map'
-  )
+      'public/js/all.js.map', 'public/build/js/all.js.map'
+    )
     .copy(
-    'public/css/all.css.map', 'public/build/css/all.css.map'
-  );
+      'public/css/all.css.map', 'public/build/css/all.css.map'
+    );
+    .livereload();
 });
