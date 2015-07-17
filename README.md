@@ -18,7 +18,8 @@ This is a repo for a starter application for a Single Page Application featuring
   - Versioning of CSS and JS files (cache busting)
   - CSS and JS files will be included automatically
 - A whole ready CRUD architecture
-- Comes with Bootstrap and AngularJS configured to work together at their best
+- Comes with Bootstrap and AngularJS (via Bower) configured to work together at their best
+- Livereload is enabled (cf https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei)
 - And more... have a try!
 
 ## Installation
@@ -30,6 +31,9 @@ composer install --prefer-dist
 ```
 ```
 npm install
+```
+```
+bower install
 ```
 
 ### Database Setup
