@@ -41,6 +41,6 @@ elixir(function (mix) {
     )
     .copy(
       'public/css/all.css.map', 'public/build/css/all.css.map'
-    );
+    )
     .livereload();
 });
