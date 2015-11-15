@@ -46,6 +46,9 @@ php artisan migrate:install
 php artisan migrate:refresh
 ```
 
+If you get an error like a `PDOException` try editing your `.env` file and change `DB_HOST=localhost` to `DB_HOST=127.0.0.1`. If that doesn’t work, file an issue on GitHub, I will be glad to help.
+Source: http://stackoverflow.com/a/20733001
+
 ## Run
 
 To provide the JS and CSS files and to keep track of changes to these files:
