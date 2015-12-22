@@ -32,7 +32,7 @@ composer install --prefer-dist
 npm install
 ```
 
-### Database Setup
+### Database setup
 
 Edit `.env.example` according to your environment and save as `.env`.
 An application key can be generates with the command `php artisan key:generate`.
@@ -70,6 +70,53 @@ Now you can browse the site  [http://localhost:8080](http://localhost:8080). �
 - Gulp
 - NPM
 - MySQL
+
+## Heroku deployment
+
+### Unignore some files
+
+You should remove `.env` and `composer.lock` from `.gitignore`.
+
+#### .env
+
+Set up your `.env` file like described in “Database setup” above.
+
+### Heroku buildpacks
+
+You will need to add custom buildpacks for Heroku. Create `.buildpacks` and paste:
+
+```
+https://github.com/heroku/heroku-buildpack-php
+https://github.com/heroku/heroku-buildpack-nodejs
+```
+
+### Procfile
+
+```
+web: vendor/bin/heroku-php-apache2 public/
+```
+
+### NPM config
+
+Your `package.json` should be changed to this:
+
+```json
+{
+    "private": true,
+    "devDependencies": {
+        "gulp": "^3.8.8"
+    },
+    "dependencies": {
+        "laravel-elixir": "^3.0.0",
+        "gulp": "^3.8.8"
+    },
+    "scripts": {
+        "postinstall": "gulp"
+    }
+}
+```
+
+The `scripts` `postinstall` part is the important here, this will generate the resources like JS and CSS files.
 
 Have fun! Any feedback is welcome. Use [Issues](https://github.com/Zemke/starter-laravel-angular/issues) or [Twitter](https://twitter.com/FlorianZemke). My Twitter handle is @FlorianZemke. I’m looking forward to talk to you.
 
