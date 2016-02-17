@@ -14,7 +14,7 @@ This is a repo for a starter application for a Single Page Application featuring
   - Flexible, extensible, clean
   - Token-based ([tymondesigns/jwt-auth](https://github.com/tymondesigns/jwt-auth))
   - Persistent local storage
-- Larevel Elixir readily configured
+- Laravel Elixir readily configured
   - Versioning of CSS and JS files (cache busting)
   - CSS and JS files will be included automatically
 - A whole ready CRUD architecture
