@@ -31,14 +31,7 @@ elixir(mix => {
         ])
         .version([
             'css/all.css',
+            'css/app.css',
             'js/all.js'
-        ])
-        .copy(
-            'public/js/all.js.map',
-            'public/build/js/all.js.map'
-        )
-        .copy(
-            'public/css/all.css.map',
-            'public/build/css/all.css.map'
-        );
+        ]);
 });
