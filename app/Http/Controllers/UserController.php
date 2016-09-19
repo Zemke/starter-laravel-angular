@@ -10,9 +10,17 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 
 class UserController extends Controller
 {
-    public function login()
+    public function login(Request $request)
     {
-        return true;
+        $credentials = $request->only('username', 'password');
+        $authenticatedUser = User::authenticate($credentials['username'], $credentials['password']);
+
+        if (!$authenticatedUser) {
+            return response()->json(['error' => 'invalid_credentials'], 401);
+        }
+
+        $authenticatedUser['token'] = JWTAuth::fromUser($authenticatedUser);
+        return response()->json($authenticatedUser);
     }
 
     public function store(Request $request)
