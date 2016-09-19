@@ -33,4 +33,9 @@ class UserController extends Controller
     {
         return User::find($id);
     }
+
+    public function getByToken()
+    {
+        return JWTAuth::parseToken()->authenticate();
+    }
 }
