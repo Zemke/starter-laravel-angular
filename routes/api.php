@@ -16,5 +16,6 @@ use Illuminate\Http\Request;
 Route::post('/user/login', 'UserController@login');
 Route::get('/user/getByToken', 'UserController@getByToken');
 
+Route::resource('/todo', 'TodoController');
 Route::resource('/user', 'UserController');
 
