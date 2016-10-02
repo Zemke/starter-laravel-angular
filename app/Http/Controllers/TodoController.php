@@ -1,48 +1,21 @@
-<?php namespace Todo\Http\Controllers;
+<?php
+
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Todo\Http\Requests;
-use Todo\Todo;
+use App\Http\Requests;
+use App\Todo;
 
 class TodoController extends Controller
 {
-
-    private $request;
-
-    function __construct(Request $request)
-    {
-        $this->request = $request;
-    }
-
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
     public function index()
     {
         return Todo::all();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
+    public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @return Response
-     */
-    public function store()
-    {
-        $input = $this->request->all();
+        $input = $request->all();
         $todo = new Todo($input);
         if (!$todo->save()) {
             abort(500, "Saving failed.");
@@ -50,53 +23,23 @@ class TodoController extends Controller
         return $todo;
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return Response
-     */
     public function show($id)
     {
         return Todo::find($id);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  int $id
-     * @return Response
-     */
-    public function update($id)
+    public function update($id, Request $request)
     {
         $todo = Todo::find($id);
-        $todo->body = $this->request->input('body');
+        $todo->body = $request->input('body');
         if (!$todo->save()) {
             abort(500, "Saving failed");
         }
         return $todo;
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     * @return Response
-     */
     public function destroy($id)
     {
         return Todo::destroy($id);
     }
-
 }

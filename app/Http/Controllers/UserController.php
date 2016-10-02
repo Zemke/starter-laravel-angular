@@ -1,134 +1,49 @@
-<?php namespace Todo\Http\Controllers;
+<?php
 
-use Illuminate\Contracts\Routing\ResponseFactory;
+namespace App\Http\Controllers;
+
+use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Todo\Http\Requests;
-use Todo\User;
-use Tymon\JWTAuth\JWTAuth;
+use Illuminate\Support\Facades\Log;
+use App\Http\Controllers\Controller;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class UserController extends Controller
 {
-    private $req;
-    private $user;
-    private $jwtAuth;
-
-    function __construct(Request $request, User $user, ResponseFactory $responseFactory, JWTAuth $jwtAuth)
+    public function login(Request $request)
     {
-        $this->req = $request;
-        $this->user = $user;
-        $this->res = $responseFactory;
-        $this->jwtAuth = $jwtAuth;
-    }
+        $credentials = $request->only('username', 'password');
+        $authenticatedUser = User::authenticate($credentials['username'], $credentials['password']);
 
-    /**
-     * Log a user in.
-     *
-     * @return Response
-     */
-    public function login()
-    {
-        $user = $this->user->authenticate(
-            $this->req->input('username'), $this->req->input('password'));
-        if (!$user) {
-            return $this->res->json([
-                'code' => null,
-                'message' => 'Login failed',
-                'description' => 'Wrong username/password.'
-
-            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        if (!$authenticatedUser) {
+            return response()->json(['error' => 'invalid_credentials'], 401);
         }
-        $user['token'] = $this->jwtAuth->fromUser($user);
-        return $this->res->json($user, Response::HTTP_OK);
+
+        $authenticatedUser['token'] = JWTAuth::fromUser($authenticatedUser);
+        return response()->json($authenticatedUser);
     }
 
-    /**
-     * Get a user by the token from the header.
-     *
-     * @return Response
-     */
-    public function getByToken()
+    public function store(Request $request)
     {
-        return $this->jwtAuth->parseToken()->authenticate();
-    }
+        Log::debug('storing');
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
-    public function index()
-    {
-        //
-    }
+        $user = new User($request->all());
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @return Response
-     */
-    public function store()
-    {
-        $user = new User($this->req->all());
         if (!$user->save()) {
             abort(500, 'Could not save user.');
         }
-        $user['token'] = $this->jwtAuth->fromUser($user);
+
+        $user['token'] = JWTAuth::fromUser($user);
         return $user;
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return Response
-     */
     public function show($id)
     {
         return User::find($id);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     * @return Response
-     */
-    public function edit($id)
+    public function getByToken()
     {
-        //
+        return JWTAuth::parseToken()->authenticate();
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  int $id
-     * @return Response
-     */
-    public function update($id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-
 }

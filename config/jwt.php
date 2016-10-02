@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of jwt-auth.
+ *
+ * (c) Sean Tymon <tymon148@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 return [
 
     /*
@@ -12,7 +21,7 @@ return [
     |
     */
 
-    'secret' => env('JWT_SECRET', 'zIJYhWbvHOefkTtRGC8pFVw6LF7v7KsT'),
+    'secret' => env('JWT_SECRET', 'OycuYzmVeC5eSW5RvtYrdcRPLZAlAu9R'),
 
     /*
     |--------------------------------------------------------------------------
@@ -64,7 +73,7 @@ return [
     |
     */
 
-    'user' => 'Todo\User',
+    'user' => 'App\User',
 
     /*
     |--------------------------------------------------------------------------
@@ -146,9 +155,7 @@ return [
         |
         */
 
-        'auth' => function ($app) {
-            return new Tymon\JWTAuth\Providers\Auth\IlluminateAuthAdapter($app['auth']);
-        },
+        'auth' => 'Tymon\JWTAuth\Providers\Auth\IlluminateAuthAdapter',
 
         /*
         |--------------------------------------------------------------------------
@@ -159,10 +166,8 @@ return [
         |
         */
 
-        'storage' => function ($app) {
-            return new Tymon\JWTAuth\Providers\Storage\IlluminateCacheAdapter($app['cache']);
-        }
+        'storage' => 'Tymon\JWTAuth\Providers\Storage\IlluminateCacheAdapter',
 
-    ]
+    ],
 
 ];
